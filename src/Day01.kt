@@ -6,7 +6,7 @@ fun main(args: Array<String>) {
 
     val list1 = ArrayList<Int>()
     val list2 = ArrayList<Int>()
-    File("day1input.txt").readLines().forEach { line ->
+    File("day1input.txt").forEachLine { line ->
         list1.add(line.split(" ").first().trim().toInt())
         list2.add(line.split(" ").last().trim().toInt())
     }
@@ -15,7 +15,7 @@ fun main(args: Array<String>) {
     // Part 1
     list1.sort()
     list2.sort()
-    val part1 = list1.zip(list2).sumOf { pair -> abs(pair.first - pair.second) }
+    val part1 = list1.zip(list2).sumOf { abs(it.first - it.second) }
     println("Part 1: The total distance between the two lists is $part1")
 
     // Part 2
