@@ -15,15 +15,10 @@ fun main(args: Array<String>) {
     // Part 1
     list1.sort()
     list2.sort()
-    var total = 0
-    list1.zip(list2).forEach { pair -> total += abs(pair.first - pair.second) }
-    println("Part 1: The total distance between the two lists is $total")
+    val part1 = list1.zip(list2).sumOf { pair -> abs(pair.first - pair.second) }
+    println("Part 1: The total distance between the two lists is $part1")
 
     // Part 2
-    var similarity = 0
-    list1.forEach { it ->
-        val count = list2.count{ item -> item == it}
-        similarity += it * count
-    }
-    println("Part 2: The similarity between the two lists is $similarity")
+    val part2 = list1.sumOf { it * list2.count { item -> item == it} }
+    println("Part 2: The similarity between the two lists is $part2")
 }
