@@ -4,7 +4,7 @@ fun main(args: Array<String>) {
     println("2024 Advent of Code day 2")
 
     val reports = File("day2input.txt").readLines().map { line -> line.split(" ").map { it.toInt() } }
-    println("There are ${reports.size} entries in the locations list")
+    println("There are ${reports.size} Red-Nosed Reactor reports")
 
     // Part 1
     val part1 = reports.count { isSafe(it).first }
