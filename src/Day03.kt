@@ -11,8 +11,7 @@ fun main(args: Array<String>) {
     println("Part 1: The sum of the multiplication operations in the program is $part1")
 
     // Part 2
-    val trimmedProgram = trimProgram(program)
-    val part2 = sumOfMults(trimmedProgram)
+    val part2 = sumOfMults(trimProgram(program))
     println("Part 2: The sum of the enabled multiplication operations in the program is $part2")
 }
 
