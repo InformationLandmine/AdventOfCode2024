@@ -19,15 +19,16 @@ fun main(args: Array<String>) {
     val failedUpdates = updates.filter { update ->
         rules.filter { update.containsAll(it) }.any { rule -> update.indexOf(rule[0]) > update.indexOf(rule[1]) }
     }
-    failedUpdates.forEach { update ->
+    val part2 = failedUpdates.sumOf { update ->
         while (true) {
-            when (val rule = rules.filter { update.containsAll(it) }.firstOrNull { rule -> update.indexOf(rule[0]) > update.indexOf(rule[1]) }) {
+            when (val rule = rules.filter { update.containsAll(it) }
+                .firstOrNull { rule -> update.indexOf(rule[0]) > update.indexOf(rule[1]) }) {
                 null -> break
                 else -> Collections.swap(update, update.indexOf(rule[0]), update.indexOf(rule[1]))
             }
         }
+        update[update.size / 2]
     }
-    val part2 = failedUpdates.sumOf { it[it.size / 2] }
     println("The sum of the middle page numbers of the incorrectly ordered updates after reordering is $part2")
 }
 
